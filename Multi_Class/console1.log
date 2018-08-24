@@ -1,0 +1,40 @@
+(/home/dinesh/tensorflow) dinesh@dinesh:~/Downloads/latest_downloads/DeepDGA-master/data$ sudo python3 dga3.py 
+/usr/local/lib/python3.5/dist-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+/usr/local/lib/python3.5/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+(790739, 196)
+(790739,)
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+embedding_1 (Embedding)      (None, 196, 128)          5120      
+_________________________________________________________________
+lstm_1 (LSTM)                (None, 128)               131584    
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 129       
+_________________________________________________________________
+activation_1 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 136,833
+Trainable params: 136,833
+Non-trainable params: 0
+_________________________________________________________________
+None
+/home/dinesh/.local/lib/python3.5/site-packages/keras/models.py:981: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.
+  warnings.warn('The `nb_epoch` argument in `fit` '
+Train on 529795 samples, validate on 260944 samples
+Epoch 1/1
+2018-07-16 21:42:45.906134: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+529792/529795 [============================>.] - ETA: 0s - loss: 0.0810 - acc: 0.9688      
+529795/529795 [==============================] - 3418s 6ms/step - loss: 0.0810 - acc: 0.9688 - val_loss: 0.0494 - val_acc: 0.9815
+
+Epoch 00001: val_acc improved from -inf to 0.98151, saving model to logs/lstm/checkpoint-01.hdf5
+Traceback (most recent call last):
+  File "dga3.py", line 84, in <module>
+    score, acc = model.evaluate(X_test, y_test, batch_size=32)
+NameError: name 'y_test' is not defined
+
